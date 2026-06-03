@@ -1,19 +1,19 @@
 .home-page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  padding: 0 var(--spacing-page-h);
+  height: 100vh;
+  overflow: hidden;
+  padding: 0;
 }
 
 /* ===== 顶部 Logo 区域 ===== */
 .home-header {
   text-align: center;
-  padding-top: 60px;
-  padding-bottom: 32px;
+  padding: 56px var(--spacing-page-h) 6px;
 }
 
 .home-logo-image {
-  height: 36px;
+  height: 42px;
   width: auto;
 }
 
@@ -21,19 +21,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .home-title {
-  font-size: var(--font-size-display);
+  font-size: 44px;
   font-weight: 700;
   color: var(--color-primary);
   letter-spacing: 2px;
 }
 
 .home-subtitle {
-  font-size: var(--font-size-caption);
+  font-size: 20px;
   color: var(--color-text-secondary);
 }
 
@@ -42,29 +42,29 @@
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 0 var(--spacing-module);
+  padding: 0 12px 8px;
+  overflow: hidden;
 }
 
 .home-cover-image {
   width: 100%;
+  max-height: 100%;
   border-radius: var(--radius-lg);
   object-fit: cover;
-  aspect-ratio: 4 / 3;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== 底部 CTA 按钮区域 ===== */
 .home-action {
-  padding: var(--spacing-module) 0 40px;
+  padding: 8px 16px 32px;
 }
 
 .home-cta-button {
   display: block;
   width: 100%;
-  min-height: var(--min-touch-target);
-  padding: 16px 24px;
-  font-size: var(--font-size-button);
+  min-height: 60px;
+  padding: 20px 24px;
+  font-size: 25px;
   font-weight: 700;
   color: #FFFFFF;
   background-color: var(--color-accent);
