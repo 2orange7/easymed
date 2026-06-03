@@ -1,0 +1,82 @@
+@import "./styles/theme.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-body);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-page);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* 全局禁止小于16px的字号 */
+body,
+p,
+span,
+div,
+button,
+input,
+textarea,
+select,
+label,
+a,
+li,
+td,
+th {
+  font-size: var(--font-size-body);
+}
+
+/* 手机框模拟 */
+.app-shell {
+  width: 100%;
+  max-width: 390px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 391px) {
+  #root {
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+
+  .app-shell {
+    min-height: calc(100vh - 40px);
+    border-radius: var(--radius-lg);
+  }
+}

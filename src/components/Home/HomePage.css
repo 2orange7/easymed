@@ -1,0 +1,87 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 var(--spacing-page-h);
+}
+
+/* ===== 顶部 Logo 区域 ===== */
+.home-header {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 32px;
+}
+
+.home-logo-image {
+  height: 36px;
+  width: auto;
+}
+
+.home-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.home-title {
+  font-size: var(--font-size-display);
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+.home-subtitle {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+}
+
+/* ===== 中间封面图区域 ===== */
+.home-cover {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 var(--spacing-module);
+}
+
+.home-cover-image {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== 底部 CTA 按钮区域 ===== */
+.home-action {
+  padding: var(--spacing-module) 0 40px;
+}
+
+.home-cta-button {
+  display: block;
+  width: 100%;
+  min-height: var(--min-touch-target);
+  padding: 16px 24px;
+  font-size: var(--font-size-button);
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-cta-button:active {
+  background-color: var(--color-accent-hover);
+  transform: scale(0.98);
+}
+
+@media (hover: hover) {
+  .home-cta-button:hover {
+    background-color: var(--color-accent-hover);
+  }
+}

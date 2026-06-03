@@ -1,0 +1,126 @@
+.welcome-card {
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0 24px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* ===== 顶部 Logo 区域 ===== */
+.welcome-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 32px;
+}
+
+.welcome-logo-image {
+  height: 36px;
+  width: auto;
+}
+
+.welcome-logo-title {
+  font-size: var(--font-size-display);
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+}
+
+/* ===== 欢迎语 ===== */
+.welcome-greeting {
+  font-size: 22px;
+  color: #333333;
+  line-height: 1.6;
+  text-align: center;
+  padding: 24px 16px;
+  margin: 0;
+}
+
+/* ===== 表单字段 ===== */
+.welcome-field {
+  margin-bottom: 0;
+}
+
+.welcome-label {
+  display: block;
+  font-size: 18px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.welcome-field-title {
+  margin-top: 24px;
+}
+
+.welcome-input {
+  display: block;
+  width: 100%;
+  height: 56px;
+  font-size: 18px;
+  padding: 0 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.welcome-input::placeholder {
+  color: #999999;
+}
+
+.welcome-input:focus {
+  border: 2px solid #00B388;
+}
+
+/* ===== 称呼选择 ===== */
+.welcome-title-options {
+  display: flex;
+  gap: 12px;
+}
+
+.welcome-title-btn {
+  flex: 1;
+  height: 56px;
+  font-size: 20px;
+  border-radius: 12px;
+  border: 1px solid #00B388;
+  background: #ffffff;
+  color: #00B388;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.welcome-title-btn.selected {
+  background: #00B388;
+  color: #ffffff;
+}
+
+/* ===== 确认按钮 ===== */
+.welcome-submit {
+  display: block;
+  width: 100%;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #FF6B35;
+  border: none;
+  border-radius: 12px;
+  margin-top: 32px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.welcome-submit:disabled {
+  background-color: #CCCCCC;
+  cursor: not-allowed;
+}
+
+/* ===== 底部提示 ===== */
+.welcome-hint {
+  font-size: 16px;
+  color: #999999;
+  text-align: center;
+  margin-top: 12px;
+}

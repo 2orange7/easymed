@@ -1,0 +1,573 @@
+.diagnosis-chat {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #F5F5F5;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+/* ===== 顶部导航栏 ===== */
+.chat-navbar {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  padding: 0 16px;
+  background: #ffffff;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.chat-navbar-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.chat-navbar-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.chat-navbar-right {
+  width: 36px;
+}
+
+/* ===== 步骤进度条 ===== */
+.chat-progress-wrapper {
+  flex-shrink: 0;
+}
+
+.chat-progress-bar {
+  display: flex;
+  height: 8px;
+}
+
+.chat-progress-step {
+  flex: 1;
+  background: #F0F0F0;
+}
+
+.chat-progress-step.done {
+  background: #00B388;
+}
+
+.chat-progress-text {
+  font-size: 16px;
+  color: #666666;
+  text-align: center;
+  padding: 8px 0;
+  margin: 0;
+}
+
+/* ===== AI助手信息栏 ===== */
+.chat-assistant-bar {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #F8FFFE;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.chat-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 2px solid #00B388;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.chat-assistant-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.chat-assistant-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #333333;
+  margin: 0;
+}
+
+.chat-assistant-subtitle {
+  font-size: 14px;
+  color: #999999;
+  margin: 0;
+}
+
+/* ===== 对话内容区域 ===== */
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+/* AI消息气泡 */
+.chat-bubble-ai {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 80%;
+  margin-bottom: 16px;
+}
+
+.chat-bubble-ai-inner {
+  background: #ffffff;
+  border-left: 4px solid #00B388;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.chat-bubble-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+  margin: 0;
+}
+
+.chat-bubble-speak {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.chat-guide-text {
+  font-size: 16px;
+  color: #999999;
+  text-align: left;
+  margin: 0 0 16px 0;
+}
+
+/* 用户消息气泡（CSS备用） */
+.chat-bubble-user {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+.chat-bubble-user-inner {
+  max-width: 80%;
+  background: #D0F0E8;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.chat-bubble-user-inner .chat-bubble-text {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333333;
+}
+
+/* ===== 底部输入区域 ===== */
+.chat-input-area {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+  box-sizing: border-box;
+  width: 100%;
+  background: #ffffff;
+  border-top: 1px solid #F0F0F0;
+}
+
+.chat-input {
+  flex: 1;
+  min-width: 0;
+  width: 0;
+  min-height: 56px;
+  max-height: 160px;
+  font-size: 18px;
+  line-height: 1.6;
+  padding: 14px 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  outline: none;
+  box-sizing: border-box;
+  resize: none;
+  overflow: hidden;
+  font-family: inherit;
+}
+
+.chat-input::placeholder {
+  font-size: 16px;
+  color: #999999;
+}
+
+.chat-input:focus {
+  border: 2px solid #00B388;
+}
+
+.chat-mic-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #E0E0E0;
+  cursor: pointer;
+  color: #666666;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.chat-mic-btn.recording {
+  color: #FF6B35;
+  border-color: #FF6B35;
+}
+
+/* ===== Toast轻提示 ===== */
+.chat-toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  z-index: 2000;
+  pointer-events: none;
+  animation: toast-fade-in 0.2s ease-out;
+}
+
+@keyframes toast-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.chat-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #00B388;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-send-btn:disabled {
+  background: #CCCCCC;
+  cursor: not-allowed;
+}
+
+/* ===== AI思考动画 ===== */
+.chat-thinking {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+}
+
+.chat-thinking-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #00B388;
+  animation: thinking-bounce 1.4s ease-in-out infinite both;
+}
+
+.chat-thinking-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.chat-thinking-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.chat-thinking-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.chat-thinking-text {
+  font-size: 16px;
+  color: #999999;
+  margin-left: 8px;
+}
+
+@keyframes thinking-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== 快捷选项按钮 ===== */
+.chat-quick-replies {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.chat-quick-reply-btn {
+  flex: 1;
+  padding: 10px 8px;
+  font-size: 18px;
+  white-space: nowrap;
+  border-radius: 12px;
+  border: 1px solid #00B388;
+  background: #ffffff;
+  color: #00B388;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.chat-quick-reply-btn:active {
+  background: #00B388;
+  color: #ffffff;
+}
+
+/* ===== 医院等级标签 ===== */
+.hospital-level {
+  font-size: 14px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.hospital-level-三甲 {
+  background: #00B388;
+}
+
+.hospital-level-二甲 {
+  background: #4A90D9;
+}
+
+/* ===== 推荐结果 ===== */
+.chat-results {
+  margin-top: 8px;
+}
+
+.chat-results-divider {
+  display: flex;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.chat-results-divider::before,
+.chat-results-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #E0E0E0;
+}
+
+.chat-results-divider-text {
+  flex-shrink: 0;
+  padding: 0 12px;
+  font-size: 16px;
+  color: #999999;
+  text-align: center;
+}
+
+.chat-results-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #333333;
+  text-align: center;
+  margin: 0 0 16px 0;
+  padding: 0;
+}
+
+.chat-results-closing {
+  font-size: 18px;
+  color: #333333;
+  text-align: center;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+
+.chat-result-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.chat-result-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.chat-result-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.chat-result-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.chat-result-dept-label {
+  font-size: 16px;
+  color: #999999;
+}
+
+.chat-result-dept {
+  font-size: 18px;
+  color: #333333;
+}
+
+.chat-result-distance {
+  font-size: 16px;
+  color: #666666;
+}
+
+.chat-result-desc {
+  font-size: 16px;
+  color: #999999;
+  margin: 8px 0 0 0;
+}
+
+/* ===== 警示框 ===== */
+.chat-alert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.chat-alert-severe {
+  background: none;
+  border: none;
+  color: #E65100;
+}
+
+.chat-alert-encourage {
+  justify-content: center;
+  text-align: center;
+  background: none;
+  border: none;
+  color: #333333;
+}
+
+/* ===== 免责声明 ===== */
+.chat-results-disclaimer {
+  font-size: 14px;
+  color: #999999;
+  text-align: center;
+  margin: 0 0 16px 0;
+}
+
+/* ===== 置灰挂号按钮 ===== */
+.chat-register-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  color: #CCCCCC;
+  background: #ffffff;
+  border: 1px solid #CCCCCC;
+  border-radius: 12px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+/* ===== 重新描述按钮 ===== */
+.chat-restart-btn {
+  display: block;
+  width: 100%;
+  height: 56px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #00B388;
+  border: none;
+  border-radius: 12px;
+  margin-top: 8px;
+  cursor: pointer;
+}
+
+/* ===== 定位弹窗 ===== */
+.chat-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.chat-modal {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 0 40px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.chat-modal-text {
+  font-size: 18px;
+  color: #333333;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.chat-modal-btn {
+  display: block;
+  width: 100%;
+  height: 48px;
+  font-size: 18px;
+  color: #ffffff;
+  background: #00B388;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+}
